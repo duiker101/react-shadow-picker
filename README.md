@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/v/react-shadow-picker) ![NPM](https://img.shields.io/npm/l/react-shadow-picker)
+
 ## React Shadow Picker
 
 A shadow picker inspired by the Chromium devtools
