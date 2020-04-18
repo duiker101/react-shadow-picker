@@ -1,6 +1,6 @@
 {
 	"name": "react-shadow-picker",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A ReactJS picker for css shadows",
 	"repository": "https://github.com/duiker101/react-shadow-picker",
 	"author": "Simone Masiero",
