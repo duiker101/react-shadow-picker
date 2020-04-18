@@ -4,6 +4,12 @@
 
 A shadow picker inspired by the Chromium devtools
 
+## Example
+
+![Demo](https://imgur.com/mLE1L19)
+
+[**Live Demo**](https://react-shadow-picker.now.sh)
+
 ### Installation
 
 ```sh
