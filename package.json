@@ -1,0 +1,34 @@
+{
+	"name": "react-shadow-picker",
+	"version": "1.0.0",
+	"description": "A ReactJS picker for css shadows",
+	"repository": "https://github.com/duiker101/react-shadow-picker",
+	"author": "Simone Masiero",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"scripts": {
+		"start": "parcel serve example/index.html",
+		"build": "tsc"
+	},
+	"devDependencies": {
+		"@testing-library/react": "^10.0.2",
+		"@types/styled-components": "^5.1.0",
+		"parcel": "^1.12.4",
+		"prettier": "^2.0.4",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"typescript": "^3.8.3"
+	},
+	"peerDependencies": {
+		"react": "^16.0.0"
+	},
+	"dependencies": {
+		"styled-components": "^5.1.0"
+	},
+	"browserslist": "> 0.25%, not dead"
+}
