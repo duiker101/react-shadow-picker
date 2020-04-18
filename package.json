@@ -12,6 +12,8 @@
 		"README.md"
 	],
 	"scripts": {
+		"start-example": "parcel serve example/index.html -d example/dist",
+		"build-example": "parcel build example/index.html -d example/dist",
 		"prebuild": "rimraf dist",
 		"build": "tsc",
 		"prepublish": "yarn build",
@@ -22,6 +24,7 @@
 	"devDependencies": {
 		"@testing-library/react": "^10.0.2",
 		"@types/styled-components": "^5.1.0",
+		"parcel": "^1.12.4",
 		"prettier": "^2.0.4",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
