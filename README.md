@@ -6,7 +6,7 @@ A shadow picker inspired by the Chromium devtools
 
 ## Example
 
-![Demo](https://imgur.com/mLE1L19)
+![Demo](https://i.imgur.com/mLE1L19.png)
 
 [**Live Demo**](https://react-shadow-picker.now.sh)
 
