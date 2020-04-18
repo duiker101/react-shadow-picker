@@ -7,7 +7,7 @@ A shadow picker inspired by the Chromium devtools
 ### Installation
 
 ```sh
-yarn add react-show-picker
+yarn add react-shadow-picker
 ```
 
 ### Usage
