@@ -9,8 +9,8 @@ body {
 	display: flex;
 	background: white;
 	padding: 1em;
-    border-radius: 8px;
-	border:1px solid #888a;
+	border-radius: 8px;
+	border: 1px solid #888a;
 }
 
 .example-wrapper {
@@ -26,10 +26,14 @@ body {
 	background: whitesmoke;
 	border-radius: 100%;
 }
+
 .shadow-picker {
 	margin-top: 1em;
 }
 
+/**
+------ Custom theme properties
+ */
 .custom-picker.shadow-picker {
 	background: antiquewhite;
 	color: blue;

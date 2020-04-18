@@ -16,8 +16,8 @@
 		"build": "tsc",
 		"prepublish": "yarn build",
 		"publish": "yarn publish",
-		"fmt": "prettier **/*.{ts,tsx,json,html} --write",
-		"checkfmt": "prettier **/*.{ts,tsx,json,html}"
+		"fmt": "prettier **/*.{ts,tsx,json,html,css} --write",
+		"checkfmt": "prettier **/*.{ts,tsx,json,html,css}"
 	},
 	"devDependencies": {
 		"@testing-library/react": "^10.0.2",
