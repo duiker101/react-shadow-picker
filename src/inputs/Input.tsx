@@ -10,7 +10,7 @@ const Input = styled.input`
 	height: 28px;
 	margin: 0 8px;
 	box-sizing: border-box;
-	flex: 1;
+	//flex: 1;
 	text-align: right;
 `;
 
