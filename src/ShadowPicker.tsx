@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 	font-size: 14px;
 
 	font-family: sans-serif;
-	color: #BEC6CF;
+	color: #bec6cf;
 `;
 
 export interface Props {

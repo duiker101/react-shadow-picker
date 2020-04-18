@@ -7,7 +7,7 @@ const App = () => {
 	const [shadow, setShadow] = useState("0px 0px 0px");
 	// const [params, setParams] = useState<ShadowPickerParams>({
 	// 	// offset: {x: "20px", y: "20px"},
-    //     blur: "20px"
+	//     blur: "20px"
 	// });
 
 	return (
