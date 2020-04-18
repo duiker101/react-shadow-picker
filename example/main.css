@@ -1,0 +1,60 @@
+body {
+	display: grid;
+	place-items: center;
+	height: 100vh;
+	background: #efefef;
+}
+
+.wrapper {
+	display: flex;
+	background: white;
+	padding: 1em;
+    border-radius: 8px;
+	border:1px solid #888a;
+}
+
+.example-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 400px;
+}
+
+.example {
+	width: 200px;
+	height: 200px;
+	background: whitesmoke;
+	border-radius: 100%;
+}
+.shadow-picker {
+	margin-top: 1em;
+}
+
+.custom-picker.shadow-picker {
+	background: antiquewhite;
+	color: blue;
+}
+.custom-picker .shadow-picker__position {
+	border: 1px solid blue;
+}
+.custom-picker .shadow-picker__position.active {
+	background: aquamarine;
+}
+.custom-picker .shadow-picker__grid {
+	border: 1px solid blue;
+}
+.custom-picker .shadow-picker__grid-line {
+	color: red;
+}
+.custom-picker .shadow-picker__grid-handle {
+	color: red;
+}
+.custom-picker .shadow-picker__input {
+	border: 1px solid teal;
+}
+.custom-picker .shadow-picker__slider {
+	background: red;
+}
+.custom-picker .shadow-picker__slider::-webkit-slider-thumb {
+	background: blue;
+}

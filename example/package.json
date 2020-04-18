@@ -1,0 +1,13 @@
+{
+	"name": "react-shadow-picker-example",
+	"license": "MIT",
+	"scripts": {
+		"start": "parcel serve index.html"
+	},
+	"dependencies": {
+		"parcel": "^1.12.4",
+		"react": "link:../node_modules/react",
+		"react-dom": "link:../node_modules/react-dom",
+		"react-shadow-picker": "link:.."
+	}
+}
