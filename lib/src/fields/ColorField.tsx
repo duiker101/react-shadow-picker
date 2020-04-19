@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import Input from "../inputs/Input";
 import {Label} from "../inputs/Label";
+import {parseHexColor} from "../common";
 
 const Wrapper = styled.div`
 	flex: 1;
@@ -9,26 +10,73 @@ const Wrapper = styled.div`
 	align-items: center;
 `;
 
+const Slider = styled.input`
+	flex: 1;
+
+	appearance: none;
+	width: 100%;
+	height: 2px;
+	background: #555a;
+	outline: none;
+
+	&::-webkit-slider-thumb {
+		appearance: none;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: #4285f4;
+		cursor: pointer;
+	}
+`;
+
 interface Props {
 	value: string;
 	onChange: (value: string) => void;
-	colorPicker?: React.ReactChild;
 }
 
-export default ({value, onChange, colorPicker}: Props) => {
+const useHex = (value: string) => {
+	const [alpha, setAlpha] = useState(0);
+	const [color, setColor] = useState("");
+
+	useEffect(() => {
+		const values = parseHexColor(value);
+		if (values) {
+			setAlpha(values.alpha);
+			setColor(values.color);
+		}
+	}, [value]);
+
+	return {color, alpha};
+};
+
+export default ({value, onChange}: Props) => {
+	const {color, alpha} = useHex(value);
+
 	const updated = (e) => {
-		onChange(e.target.value);
+		onChange(e.target.value + alpha.toString(16).padStart(2, "0"));
+	};
+
+	const updatedInput = (e) => {
+		onChange(e);
+	};
+
+	const updatedAlpha = (e) => {
+		const hex = parseInt(e.target.value).toString(16).padStart(2, "0");
+		onChange(color + hex);
 	};
 
 	return (
 		<Wrapper>
 			<Label>Color</Label>
-			<Input value={value} onChange={onChange} />
-			{colorPicker ? (
-				colorPicker
-			) : (
-				<input value={value} onChange={updated} type={"color"} />
-			)}
+			<Input value={value} onChange={updatedInput} />
+			<input value={color} onChange={updated} type={"color"} />
+			<Slider
+				className={"shadow-picker__slider"}
+				type={"range"}
+				value={alpha}
+				onChange={updatedAlpha}
+				max={255}
+			/>
 		</Wrapper>
 	);
 };

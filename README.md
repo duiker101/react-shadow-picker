@@ -6,7 +6,7 @@ A shadow picker inspired by the Chromium devtools
 
 ## Example
 
-![Demo](https://i.imgur.com/mLE1L19.png)
+![Demo](https://raw.githubusercontent.com/duiker101/react-shadow-picker/master/docs/demo.png)
 
 [**Live Demo**](https://react-shadow-picker.now.sh)
 
@@ -18,41 +18,21 @@ yarn add react-shadow-picker
 
 ### Usage
 
-#### Uncontrolled component
+The component can be used either in a Controlled or Uncontrolled way.
+If you pass the value back to the component, it will be controlled.
 
 ```typescript jsx
 import {ShadowPicker} from "react-shadow-picker";
 
 const App = () => {
-	const [shadow, setShadow] = useState("0px 0px 10px 10px");
+	const [shadow, setShadow] = useState("0px 0px 10px 10px #44444455");
 
 	return (
-		<div style={{boxShadow: shadow + " #0005"}}>
+		<div style={{boxShadow: shadow}}>
 			<ShadowPicker
+				value={shadow}
 				onChange={(value) => {
 					setShadow(value);
-				}}
-			/>
-		</div>
-	);
-};
-```
-
-#### Controlled component
-
-```typescript jsx
-import {ShadowPicker, ShadowPickerParams} from "react-shadow-picker";
-
-const App = () => {
-	const [shadow, setShadow] = useState("0px 0px 10px 10px");
-	const [params, setParams] = useState<ShadowPickerParams>({});
-
-	return (
-		<div style={{boxShadow: shadow + " #0005"}}>
-			<ShadowPicker
-				onChange={(value, params) => {
-					setShadow(value);
-					setParams(params);
 				}}
 			/>
 		</div>
@@ -65,7 +45,7 @@ const App = () => {
 Assign the picker a custom class
 
 ```jsx
-<ShadowPicker className={"custom-picker"} />
+<ShadowPicker className={"custom-picker"} ... />
 ```
 
 and then style it with these classes

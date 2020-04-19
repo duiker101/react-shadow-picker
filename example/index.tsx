@@ -4,7 +4,7 @@ import {ShadowPicker} from "../lib/src";
 
 const App = () => {
 	const [custom, setCustom] = useState(false);
-	const [shadow, setShadow] = useState("5px 5px 10px #a4a4a4");
+	const [shadow, setShadow] = useState("5px 5px 20px 2px #00000055");
 
 	return (
 		<div className={"wrapper"}>

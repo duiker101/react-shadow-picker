@@ -43,6 +43,21 @@ export const buildShadowString = (params: ShadowPickerParams): string => {
 	return values.join(" ");
 };
 
+export const parseHexColor = (
+	value: string
+): {color: string; alpha: number} | null => {
+	const match = value.match(/#(?<hex>[0-9A-F]{6,8})/i) as any;
+	const hex = match?.groups?.hex;
+	if (hex) {
+		let alpha = 255;
+		if (hex.length === 8) {
+			alpha = parseInt(hex.substr(6, 2), 16);
+		}
+		return {alpha, color: "#" + hex.substr(0, 6)};
+	}
+	return null;
+};
+
 export const useUnitValue = (value: string) => {
 	const [amount, setAmount] = useState(0);
 	const [unit, setUnit] = useState("px");

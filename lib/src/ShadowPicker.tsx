@@ -42,7 +42,9 @@ const useShadowParameters = (
 
 	useEffect(() => {
 		if (!isControlled) return;
+
 		const p = parseShadowString(value);
+
 		if (p) setState(p);
 	}, [value]);
 
@@ -63,7 +65,7 @@ const useShadowParameters = (
 	return [state, updateState];
 };
 
-export default ({onChange, value, className = "", colorPicker}: Props) => {
+export default ({onChange, value, className = ""}: Props) => {
 	const [state, updateState] = useShadowParameters(onChange, value);
 
 	return (
@@ -87,7 +89,6 @@ export default ({onChange, value, className = "", colorPicker}: Props) => {
 				title={"Spread"}
 			/>
 			<ColorField
-				colorPicker={colorPicker}
 				value={state?.color || "#000000"}
 				onChange={updateState("color")}
 			/>
