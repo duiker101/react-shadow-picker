@@ -1,15 +1,16 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.svg`
+const Wrapper = styled.svg<{dragging: boolean}>`
 	width: 100px;
 	height: 100px;
 	border: 1px solid #5a5a5a;
+	cursor: ${(p) => (p.dragging ? "grabbing" : "grab")};
 `;
 
-const Handle = styled.circle<{dragging: boolean}>`
-	cursor: ${(p) => (p.dragging ? "grabbing" : "grab")};
-	color: #4285F4;
+const Handle = styled.circle`
+	color: #4285f4;
+	pointer-events: none;
 `;
 
 const Line = styled.line`
@@ -33,7 +34,10 @@ export default ({offset: {x, y}, max = 20, onChange}: Props) => {
 
 	const onMove = (e) => {
 		if (!dragging || !svg?.current) return;
+		updatePos(e);
+	};
 
+	const updatePos = (e: {clientX: number; clientY: number}) => {
 		let point = svg.current.createSVGPoint();
 		point.x = e.clientX;
 		point.y = e.clientY;
@@ -47,6 +51,18 @@ export default ({offset: {x, y}, max = 20, onChange}: Props) => {
 		onChange(offset);
 	};
 
+	useEffect(() => {
+		const listener = (e) => {
+			if (e.target.getAttribute("data-touch")) {
+				e.preventDefault();
+				e.touches && updatePos(e.touches[0]);
+			}
+		};
+
+		window.addEventListener("touchmove", listener, {passive: false});
+		return () => window.removeEventListener("touchmove", listener);
+	}, [updatePos]);
+
 	const posX = (50 / max) * x + 50;
 	const posY = (50 / max) * y + 50;
 
@@ -54,6 +70,10 @@ export default ({offset: {x, y}, max = 20, onChange}: Props) => {
 		<Wrapper
 			ref={svg}
 			onMouseMove={onMove}
+			onMouseDown={() => setDragging(true)}
+			onMouseUp={() => setDragging(false)}
+			dragging={dragging}
+			data-touch={true}
 			className={"shadow-picker__grid"}
 			viewBox={"0 0 100 100"}>
 			<Line
@@ -86,14 +106,11 @@ export default ({offset: {x, y}, max = 20, onChange}: Props) => {
 				className={"shadow-picker__grid-line"}
 			/>
 			<Handle
-				onMouseDown={() => setDragging(true)}
-				onMouseUp={() => setDragging(false)}
 				className={"shadow-picker__grid-handle"}
 				cx={posX}
 				cy={posY}
 				r={5}
 				fill={"currentColor"}
-				dragging={dragging}
 			/>
 		</Wrapper>
 	);

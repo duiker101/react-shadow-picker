@@ -1,8 +1,12 @@
 body {
-	display: grid;
-	place-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 100vh;
 	background: #efefef;
+	overflow: scroll;
+	margin: 0;
+	padding: 1em;
 }
 
 .wrapper {
@@ -11,13 +15,21 @@ body {
 	padding: 1em;
 	border-radius: 8px;
 	border: 1px solid #888a;
+	min-width: 300px;
+	max-width: 600px;
+	justify-content: center;
+	flex: 1;
+	flex-wrap: wrap;
 }
 
 .example-wrapper {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 400px;
+	min-width: 300px;
+	max-width: 400px;
+	height: 300px;
+	flex: 1;
 }
 
 .example {
@@ -29,18 +41,6 @@ body {
 
 .shadow-picker {
 	margin-top: 1em;
-}
-
-.popover {
-	position: absolute;
-	z-index: 2;
-}
-.cover {
-	position: fixed;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
 }
 
 /**

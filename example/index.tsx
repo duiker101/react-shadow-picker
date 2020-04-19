@@ -7,7 +7,7 @@ const App = () => {
 	const [shadow, setShadow] = useState("5px 5px 20px 2px #00000055");
 
 	return (
-		<div className={"wrapper"}>
+		<>
 			<div>
 				<label>
 					Custom theme
@@ -17,20 +17,18 @@ const App = () => {
 						onChange={() => setCustom(!custom)}
 					/>
 				</label>
-				<div>
-					<ShadowPicker
-						className={custom && "custom-picker"}
-						value={shadow}
-						onChange={(value) => {
-							setShadow(value);
-						}}
-					/>
-				</div>
+				<ShadowPicker
+					className={custom && "custom-picker"}
+					value={shadow}
+					onChange={(value) => {
+						setShadow(value);
+					}}
+				/>
 			</div>
 			<div className={"example-wrapper"}>
 				<div className={"example"} style={{boxShadow: shadow}}></div>
 			</div>
-		</div>
+		</>
 	);
 };
 
