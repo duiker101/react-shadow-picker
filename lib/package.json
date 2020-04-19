@@ -14,6 +14,7 @@
 	"scripts": {
 		"start": "tsc --watch",
 		"prebuild": "rimraf dist",
+		"test": "jest",
 		"build": "tsc",
 		"prepublishOnly": "yarn build",
 		"publish": "yarn publish"

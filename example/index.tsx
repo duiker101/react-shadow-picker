@@ -1,15 +1,10 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
-import {ShadowPicker, ShadowPickerParams} from "../lib/src";
+import {ShadowPicker} from "../lib/src";
 
 const App = () => {
 	const [custom, setCustom] = useState(false);
-	const [shadow, setShadow] = useState("");
-	const [params, setParams] = useState<ShadowPickerParams>({
-		offset: {x: "5px", y: "5px"},
-		blur: "40px",
-		color: "#a4a4a4",
-	});
+	const [shadow, setShadow] = useState("5px 5px 10px #a4a4a4");
 
 	return (
 		<div className={"wrapper"}>
@@ -25,10 +20,9 @@ const App = () => {
 				<div>
 					<ShadowPicker
 						className={custom && "custom-picker"}
-						params={params}
-						onChange={(value, params) => {
+						value={shadow}
+						onChange={(value) => {
 							setShadow(value);
-							setParams(params);
 						}}
 					/>
 				</div>

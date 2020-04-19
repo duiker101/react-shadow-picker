@@ -5,6 +5,7 @@ import OffsetField from "./fields/OffsetField";
 import SliderField from "./fields/SliderField";
 import {ShadowOffset, ShadowPickerParams, ShadowPosition} from "./types";
 import ColorField from "./fields/ColorField";
+import {buildShadowString, parseShadowString} from "./common";
 
 const Wrapper = styled.div`
 	padding: 8px;
@@ -21,65 +22,74 @@ const Wrapper = styled.div`
 `;
 
 export interface Props {
-	onChange: (value: string, params: ShadowPickerParams) => void;
-	params?: ShadowPickerParams;
+	onChange: (value: string) => void;
+	value?: string;
 	className?: string;
 	colorPicker?: React.ReactChild;
 }
 
-export default ({onChange, params, className = "", colorPicker}: Props) => {
-	const isControlled = params && onChange;
-	const [state, setState] = useState<ShadowPickerParams>(params ?? {});
+const useShadowParameters = (
+	onChange: Props["onChange"],
+	value?: string
+): [
+	ShadowPickerParams,
+	(
+		column: keyof ShadowPickerParams
+	) => (value: string | ShadowOffset | ShadowPosition | undefined) => void
+] => {
+	const isControlled = value && onChange;
+	const [state, setState] = useState<ShadowPickerParams>({});
 
-	const paramsUpdate = (column: keyof ShadowPickerParams) => (
+	useEffect(() => {
+		if (!isControlled) return;
+		const p = parseShadowString(value);
+		if (p) setState(p);
+	}, [value]);
+
+	useEffect(() => {
+		if (isControlled) return;
+		const newValue = buildShadowString(state);
+		onChange(newValue);
+	}, [state]);
+
+	const updateState = (column: keyof ShadowPickerParams) => (
 		value: string | ShadowOffset | ShadowPosition | undefined
 	) => {
-		const data = isControlled ? params : state;
-		const newParams = {...data, [column]: value};
-		const newValues = [
-			newParams.position === "inside" ? "inset" : undefined,
-			newParams.offset?.x || "0",
-			newParams.offset?.y || "0",
-			newParams.blur,
-			newParams.spread,
-			newParams.color,
-		];
-
-		onChange(newValues.join(" "), newParams);
+		const newParams = {...state, [column]: value};
+		onChange(buildShadowString(newParams));
 		!isControlled && setState(newParams);
 	};
 
-	useEffect(() => {
-		const data = isControlled ? params : state;
-		paramsUpdate("offset")(data?.offset);
-	}, []);
+	return [state, updateState];
+};
 
-	const data = isControlled ? params : state;
+export default ({onChange, value, className = "", colorPicker}: Props) => {
+	const [state, updateState] = useShadowParameters(onChange, value);
 
 	return (
 		<Wrapper className={"shadow-picker " + className}>
 			<TypeField
-				value={data?.position || "outside"}
-				onChange={paramsUpdate("position")}
+				value={state?.position || "outside"}
+				onChange={updateState("position")}
 			/>
 			<OffsetField
-				value={data?.offset || {x: "0", y: "0"}}
-				onChange={paramsUpdate("offset")}
+				value={state?.offset || {x: "0", y: "0"}}
+				onChange={updateState("offset")}
 			/>
 			<SliderField
-				value={data?.blur || "0"}
-				onChange={paramsUpdate("blur")}
+				value={state?.blur || "0"}
+				onChange={updateState("blur")}
 				title={"Blur"}
 			/>
 			<SliderField
-				value={data?.spread || "0"}
-				onChange={paramsUpdate("spread")}
+				value={state?.spread || "0"}
+				onChange={updateState("spread")}
 				title={"Spread"}
 			/>
 			<ColorField
 				colorPicker={colorPicker}
-				value={data?.color || "#a4a4a4"}
-				onChange={paramsUpdate("color")}
+				value={state?.color || "#000000"}
+				onChange={updateState("color")}
 			/>
 		</Wrapper>
 	);
