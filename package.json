@@ -5,8 +5,8 @@
 	],
 	"private": true,
 	"scripts": {
-		"fmt": "../node_modules/.bin/prettier **/*.{ts,tsx,json,html,css} --write",
-		"checkfmt": "../node_modules/.bin/prettier **/*.{ts,tsx,json,html,css}",
+		"fmt": "prettier **/*.{ts,tsx,json,html,css} --write",
+		"checkfmt": "prettier **/*.{ts,tsx,json,html,css}",
 		"publish": "yarn workspace react-shadow-picker publish"
 	},
 	"devDependencies": {
