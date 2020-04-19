@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import {ShadowPicker, ShadowPickerParams} from "../lib/src";
-import "./main.css";
 
 const App = () => {
 	const [custom, setCustom] = useState(false);

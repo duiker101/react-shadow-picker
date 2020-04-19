@@ -4284,14 +4284,6 @@ react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-shadow-picker@latest:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-shadow-picker/-/react-shadow-picker-1.0.2.tgz#7bdfc1040154ee9e66fb938a985b6c26b698ef1c"
-  integrity sha512-YZf9ne2rKiv3dTTgSYr0I1NCaAe+XtfbQ4Pb24Bur5n1UbmMz8T84OxfA5P8erXLwTDSzUvVUpdfgEozB3xh5Q==
-  dependencies:
-    rimraf "^3.0.2"
-    styled-components "^5.1.0"
-
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
