@@ -4,13 +4,9 @@ import TypeField from "./fields/TypeField";
 import OffsetField from "./fields/OffsetField";
 import SliderField from "./fields/SliderField";
 import {ShadowOffset, ShadowPickerParams, ShadowPosition} from "./types";
+import ColorField from "./fields/ColorField";
 
 const Wrapper = styled.div`
-	//--color: red;
-	//--accent: red;
-	//--border: yellow;
-	//--background: teal;
-	//
 	padding: 8px;
 	display: flex;
 	flex-direction: column;
@@ -28,9 +24,10 @@ export interface Props {
 	onChange: (value: string, params: ShadowPickerParams) => void;
 	params?: ShadowPickerParams;
 	className?: string;
+	colorPicker?: React.ReactChild;
 }
 
-export default ({onChange, params, className = ""}: Props) => {
+export default ({onChange, params, className = "", colorPicker}: Props) => {
 	const isControlled = params && onChange;
 	const [state, setState] = useState<ShadowPickerParams>(params ?? {});
 
@@ -45,6 +42,7 @@ export default ({onChange, params, className = ""}: Props) => {
 			newParams.offset?.y || "0",
 			newParams.blur,
 			newParams.spread,
+			newParams.color,
 		];
 
 		onChange(newValues.join(" "), newParams);
@@ -77,6 +75,11 @@ export default ({onChange, params, className = ""}: Props) => {
 				value={data?.spread || "0"}
 				onChange={paramsUpdate("spread")}
 				title={"Spread"}
+			/>
+			<ColorField
+				colorPicker={colorPicker}
+				value={data?.color || "#a4a4a4"}
+				onChange={paramsUpdate("color")}
 			/>
 		</Wrapper>
 	);

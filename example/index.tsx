@@ -4,10 +4,11 @@ import {ShadowPicker, ShadowPickerParams} from "../lib/src";
 
 const App = () => {
 	const [custom, setCustom] = useState(false);
-	const [shadow, setShadow] = useState("0px 0px 0px");
+	const [shadow, setShadow] = useState("");
 	const [params, setParams] = useState<ShadowPickerParams>({
 		offset: {x: "5px", y: "5px"},
 		blur: "40px",
+		color: "#a4a4a4",
 	});
 
 	return (
@@ -33,9 +34,7 @@ const App = () => {
 				</div>
 			</div>
 			<div className={"example-wrapper"}>
-				<div
-					className={"example"}
-					style={{boxShadow: shadow + " #0005"}}></div>
+				<div className={"example"} style={{boxShadow: shadow}}></div>
 			</div>
 		</div>
 	);

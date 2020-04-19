@@ -10,4 +10,5 @@ export interface ShadowPickerParams {
 	offset?: ShadowOffset;
 	blur?: string;
 	spread?: string;
+	color?: string;
 }
