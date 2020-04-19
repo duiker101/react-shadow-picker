@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
-import {ShadowPicker, ShadowPickerParams} from "react-shadow-picker";
+import {ShadowPicker, ShadowPickerParams} from "../lib/src";
 import "./main.css";
 
 const App = () => {
