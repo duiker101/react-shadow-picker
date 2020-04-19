@@ -1,6 +1,6 @@
 {
 	"name": "react-shadow-picker",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A ReactJS picker for css shadows",
 	"repository": "https://github.com/duiker101/react-shadow-picker",
 	"author": "Simone Masiero",
@@ -16,8 +16,7 @@
 		"prebuild": "rimraf dist",
 		"test": "jest",
 		"build": "tsc",
-		"prepublishOnly": "yarn build",
-		"publish": "yarn publish"
+		"prepublishOnly": "yarn build"
 	},
 	"peerDependencies": {
 		"react": "^16.0.0"

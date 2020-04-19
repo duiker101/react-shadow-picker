@@ -6,8 +6,7 @@
 	"private": true,
 	"scripts": {
 		"fmt": "prettier **/*.{ts,tsx,json,html,css} --write",
-		"checkfmt": "prettier **/*.{ts,tsx,json,html,css}",
-		"publish": "yarn workspace react-shadow-picker publish"
+		"checkfmt": "prettier **/*.{ts,tsx,json,html,css}"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.9.5",
