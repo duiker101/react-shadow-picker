@@ -1,35 +1,35 @@
 {
-	"name": "react-shadow-picker",
-	"version": "1.0.5",
-	"description": "A ReactJS picker for css shadows",
-	"repository": "https://github.com/duiker101/react-shadow-picker",
-	"author": "Simone Masiero",
-	"license": "MIT",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"keywords": [
-		"picker",
-		"shadow",
-		"css",
-		"react"
-	],
-	"files": [
-		"dist",
-		"README.md"
-	],
-	"scripts": {
-		"start": "tsc --watch",
-		"test": "jest",
-		"prebuild": "del dist README.md",
-		"build": "tsc",
-		"postbuild": "cpx ../README.md .",
-		"prepublishOnly": "yarn build"
-	},
-	"peerDependencies": {
-		"react": "^16.0.0"
-	},
-	"dependencies": {
-		"styled-components": "^5.1.0"
-	},
-	"browserslist": "> 0.25%, not dead"
+    "name": "react-shadow-picker",
+    "version": "1.0.6",
+    "description": "A ReactJS picker for css shadows",
+    "repository": "https://github.com/duiker101/react-shadow-picker",
+    "author": "Simone Masiero",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "keywords": [
+        "picker",
+        "shadow",
+        "css",
+        "react"
+    ],
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "start": "tsc --watch",
+        "test": "jest",
+        "prebuild": "del dist README.md",
+        "build": "tsc",
+        "postbuild": "cpy ../README.md .",
+        "prepublishOnly": "npm run build"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2"
+    },
+    "dependencies": {
+        "styled-components": "^5.3.1"
+    },
+    "browserslist": "> 0.25%, not dead"
 }

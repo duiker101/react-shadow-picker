@@ -1,76 +1,76 @@
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	background: #efefef;
-	overflow: scroll;
-	margin: 0;
-	padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #efefef;
+    overflow: scroll;
+    margin: 0;
+    padding: 1em;
 }
 
 .wrapper {
-	display: flex;
-	background: white;
-	padding: 1em;
-	border-radius: 8px;
-	border: 1px solid #888a;
-	min-width: 300px;
-	max-width: 600px;
-	justify-content: center;
-	flex: 1;
-	flex-wrap: wrap;
+    display: flex;
+    background: white;
+    padding: 1em;
+    border-radius: 8px;
+    border: 1px solid #888a;
+    min-width: 300px;
+    max-width: 600px;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
 }
 
 .example-wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 300px;
-	max-width: 400px;
-	height: 300px;
-	flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    max-width: 400px;
+    height: 300px;
+    flex: 1;
 }
 
 .example {
-	width: 200px;
-	height: 200px;
-	background: whitesmoke;
-	border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    background: whitesmoke;
+    border-radius: 100%;
 }
 
 .shadow-picker {
-	margin-top: 1em;
+    margin-top: 1em;
 }
 
 /**
 ------ Custom theme properties
  */
 .custom-picker.shadow-picker {
-	background: antiquewhite;
-	color: blue;
+    background: antiquewhite;
+    color: blue;
 }
 .custom-picker .shadow-picker__position {
-	border: 1px solid blue;
+    border: 1px solid blue;
 }
 .custom-picker .shadow-picker__position.active {
-	background: aquamarine;
+    background: aquamarine;
 }
 .custom-picker .shadow-picker__grid {
-	border: 1px solid blue;
+    border: 1px solid blue;
 }
 .custom-picker .shadow-picker__grid-line {
-	color: red;
+    color: red;
 }
 .custom-picker .shadow-picker__grid-handle {
-	color: red;
+    color: red;
 }
 .custom-picker .shadow-picker__input {
-	border: 1px solid teal;
+    border: 1px solid teal;
 }
 .custom-picker .shadow-picker__slider {
-	background: red;
+    background: red;
 }
 .custom-picker .shadow-picker__slider::-webkit-slider-thumb {
-	background: blue;
+    background: blue;
 }
