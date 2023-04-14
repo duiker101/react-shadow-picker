@@ -30,53 +30,53 @@ const Slider = styled.input`
 `;
 
 interface Props {
-	value: string;
-	onChange: (value: string) => void;
+    value: string;
+    onChange: (value: string) => void;
 }
 
 const useHex = (value: string) => {
-	const [alpha, setAlpha] = useState(0);
-	const [color, setColor] = useState("");
+    const [alpha, setAlpha] = useState(0);
+    const [color, setColor] = useState("");
 
-	useEffect(() => {
-		const values = parseHexColor(value);
-		if (values) {
-			setAlpha(values.alpha);
-			setColor(values.color);
-		}
-	}, [value]);
+    useEffect(() => {
+        const values = parseHexColor(value);
+        if (values) {
+            setAlpha(values.alpha);
+            setColor(values.color);
+        }
+    }, [value]);
 
-	return {color, alpha};
+    return {color, alpha};
 };
 
 export default ({value, onChange}: Props) => {
-	const {color, alpha} = useHex(value);
+    const {color, alpha} = useHex(value);
 
-	const updated = (e) => {
-		onChange(e.target.value + alpha.toString(16).padStart(2, "0"));
-	};
+    const updated = (e) => {
+        onChange(e.target.value + alpha.toString(16).padStart(2, "0"));
+    };
 
-	const updatedInput = (e) => {
-		onChange(e);
-	};
+    const updatedInput = (e) => {
+        onChange(e);
+    };
 
-	const updatedAlpha = (e) => {
-		const hex = parseInt(e.target.value).toString(16).padStart(2, "0");
-		onChange(color + hex);
-	};
+    const updatedAlpha = (e) => {
+        const hex = parseInt(e.target.value).toString(16).padStart(2, "0");
+        onChange(color + hex);
+    };
 
-	return (
-		<Wrapper>
-			<Label>Color</Label>
-			<Input value={value} onChange={updatedInput} />
-			<input value={color} onChange={updated} type={"color"} />
-			<Slider
-				className={"shadow-picker__slider"}
-				type={"range"}
-				value={alpha}
-				onChange={updatedAlpha}
-				max={255}
-			/>
-		</Wrapper>
-	);
+    return (
+        <Wrapper>
+            <Label>Color</Label>
+            <Input value={value} onChange={updatedInput}/>
+            <input value={color} onChange={updated} type={"color"}/>
+            <Slider
+                className={"shadow-picker__slider"}
+                type={"range"}
+                value={alpha}
+                onChange={updatedAlpha}
+                max={255}
+            />
+        </Wrapper>
+    );
 };

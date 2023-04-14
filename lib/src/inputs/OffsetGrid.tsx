@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.svg<{dragging: boolean}>`
+const Wrapper = styled.svg<{ dragging: boolean }>`
 	width: 100px;
 	height: 100px;
 	border: 1px solid #5a5a5a;
@@ -18,100 +18,100 @@ const Line = styled.line`
 `;
 
 interface Offset {
-	x: number;
-	y: number;
+    x: number;
+    y: number;
 }
 
 interface Props {
-	max?: number;
-	offset: Offset;
-	onChange: (offset: Offset) => void;
+    max?: number;
+    offset: Offset;
+    onChange: (offset: Offset) => void;
 }
 
 export default ({offset: {x, y}, max = 20, onChange}: Props) => {
-	const [dragging, setDragging] = useState(false);
-	const svg = useRef<SVGSVGElement>();
+    const [dragging, setDragging] = useState(false);
+    const svg = useRef<SVGSVGElement>();
 
-	const onMove = (e) => {
-		if (!dragging || !svg?.current) return;
-		updatePos(e);
-	};
+    const onMove = (e) => {
+        if (!dragging || !svg?.current) return;
+        updatePos(e);
+    };
 
-	const updatePos = (e: {clientX: number; clientY: number}) => {
-		let point = svg.current.createSVGPoint();
-		point.x = e.clientX;
-		point.y = e.clientY;
-		let t = point.matrixTransform(svg.current.getScreenCTM().inverse());
+    const updatePos = (e: { clientX: number; clientY: number }) => {
+        let point = svg.current.createSVGPoint();
+        point.x = e.clientX;
+        point.y = e.clientY;
+        let t = point.matrixTransform(svg.current.getScreenCTM().inverse());
 
-		const offset = {
-			x: Math.trunc((t.x - 50) * (max / 50) * 100) / 100,
-			y: Math.trunc((t.y - 50) * (max / 50) * 100) / 100,
-		};
+        const offset = {
+            x: Math.trunc((t.x - 50) * (max / 50) * 100) / 100,
+            y: Math.trunc((t.y - 50) * (max / 50) * 100) / 100,
+        };
 
-		onChange(offset);
-	};
+        onChange(offset);
+    };
 
-	useEffect(() => {
-		const listener = (e) => {
-			if (e.target.getAttribute("data-touch")) {
-				e.preventDefault();
-				e.touches && updatePos(e.touches[0]);
-			}
-		};
+    useEffect(() => {
+        const listener = (e) => {
+            if (e.target.getAttribute("data-touch")) {
+                e.preventDefault();
+                e.touches && updatePos(e.touches[0]);
+            }
+        };
 
-		window.addEventListener("touchmove", listener, {passive: false});
-		return () => window.removeEventListener("touchmove", listener);
-	}, [updatePos]);
+        window.addEventListener("touchmove", listener, {passive: false});
+        return () => window.removeEventListener("touchmove", listener);
+    }, [updatePos]);
 
-	const posX = (50 / max) * x + 50;
-	const posY = (50 / max) * y + 50;
+    const posX = (50 / max) * x + 50;
+    const posY = (50 / max) * y + 50;
 
-	return (
-		<Wrapper
-			ref={svg}
-			onMouseMove={onMove}
-			onMouseDown={() => setDragging(true)}
-			onMouseUp={() => setDragging(false)}
-			dragging={dragging}
-			data-touch={true}
-			className={"shadow-picker__grid"}
-			viewBox={"0 0 100 100"}>
-			<Line
-				x1={50}
-				y1={0}
-				x2={50}
-				y2={100}
-				strokeWidth={2}
-				strokeDasharray={"2,1"}
-				stroke={"currentColor"}
-				className={"shadow-picker__grid-line"}
-			/>
-			<Line
-				x1={0}
-				y1={50}
-				x2={100}
-				y2={50}
-				strokeDasharray={"2,1"}
-				strokeWidth={2}
-				stroke={"currentColor"}
-				className={"shadow-picker__grid-line"}
-			/>
-			<Line
-				x1={50}
-				y1={50}
-				x2={posX}
-				y2={posY}
-				strokeWidth={2}
-				stroke={"currentColor"}
-				className={"shadow-picker__grid-line"}
-			/>
-			<Handle
-				className={"shadow-picker__grid-handle"}
-				cx={posX}
-				cy={posY}
-				r={5}
-				fill={"currentColor"}
-			/>
-		</Wrapper>
-	);
+    return (
+        <Wrapper
+            ref={svg}
+            onMouseMove={onMove}
+            onMouseDown={() => setDragging(true)}
+            onMouseUp={() => setDragging(false)}
+            dragging={dragging}
+            data-touch={true}
+            className={"shadow-picker__grid"}
+            viewBox={"0 0 100 100"}>
+            <Line
+                x1={50}
+                y1={0}
+                x2={50}
+                y2={100}
+                strokeWidth={2}
+                strokeDasharray={"2,1"}
+                stroke={"currentColor"}
+                className={"shadow-picker__grid-line"}
+            />
+            <Line
+                x1={0}
+                y1={50}
+                x2={100}
+                y2={50}
+                strokeDasharray={"2,1"}
+                strokeWidth={2}
+                stroke={"currentColor"}
+                className={"shadow-picker__grid-line"}
+            />
+            <Line
+                x1={50}
+                y1={50}
+                x2={posX}
+                y2={posY}
+                strokeWidth={2}
+                stroke={"currentColor"}
+                className={"shadow-picker__grid-line"}
+            />
+            <Handle
+                className={"shadow-picker__grid-handle"}
+                cx={posX}
+                cy={posY}
+                r={5}
+                fill={"currentColor"}
+            />
+        </Wrapper>
+    );
 };

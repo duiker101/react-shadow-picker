@@ -50,27 +50,35 @@ body {
     background: antiquewhite;
     color: blue;
 }
+
 .custom-picker .shadow-picker__position {
     border: 1px solid blue;
 }
+
 .custom-picker .shadow-picker__position.active {
     background: aquamarine;
 }
+
 .custom-picker .shadow-picker__grid {
     border: 1px solid blue;
 }
+
 .custom-picker .shadow-picker__grid-line {
     color: red;
 }
+
 .custom-picker .shadow-picker__grid-handle {
     color: red;
 }
+
 .custom-picker .shadow-picker__input {
     border: 1px solid teal;
 }
+
 .custom-picker .shadow-picker__slider {
     background: red;
 }
+
 .custom-picker .shadow-picker__slider::-webkit-slider-thumb {
     background: blue;
 }

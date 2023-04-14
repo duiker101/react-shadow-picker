@@ -45,7 +45,7 @@ export const buildShadowString = (params: ShadowPickerParams): string => {
 
 export const parseHexColor = (
     value: string
-): {color: string; alpha: number} | null => {
+): { color: string; alpha: number } | null => {
     const match = value.match(/#(?<hex>[0-9A-F]{6,8})/i) as any;
     const hex = match?.groups?.hex;
     if (hex) {

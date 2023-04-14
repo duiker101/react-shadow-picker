@@ -25,18 +25,18 @@ If you pass the value back to the component, it will be controlled.
 import {ShadowPicker} from "react-shadow-picker";
 
 const App = () => {
-	const [shadow, setShadow] = useState("0px 0px 10px 10px #44444455");
+    const [shadow, setShadow] = useState("0px 0px 10px 10px #44444455");
 
-	return (
-		<div style={{boxShadow: shadow}}>
-			<ShadowPicker
-				value={shadow}
-				onChange={(value) => {
-					setShadow(value);
-				}}
-			/>
-		</div>
-	);
+    return (
+        <div style={{boxShadow: shadow}}>
+            <ShadowPicker
+                value={shadow}
+                onChange={(value) => {
+                    setShadow(value);
+                }}
+            />
+        </div>
+    );
 };
 ```
 
@@ -45,38 +45,47 @@ const App = () => {
 Assign the picker a custom class
 
 ```jsx
-<ShadowPicker className={"custom-picker"} ... />
+<ShadowPicker className={"custom-picker"} ...
+/>
 ```
 
 and then style it with these classes
 
 ```css
 .custom-picker.shadow-picker {
-	background: antiquewhite;
-	color: blue;
+    background: antiquewhite;
+    color: blue;
 }
+
 .custom-picker .shadow-picker__position {
-	border: 1px solid blue;
+    border: 1px solid blue;
 }
+
 .custom-picker .shadow-picker__position.active {
-	background: aquamarine;
+    background: aquamarine;
 }
+
 .custom-picker .shadow-picker__grid {
-	border: 1px solid blue;
+    border: 1px solid blue;
 }
+
 .custom-picker .shadow-picker__grid-line {
-	color: red;
+    color: red;
 }
+
 .custom-picker .shadow-picker__grid-handle {
-	color: red;
+    color: red;
 }
+
 .custom-picker .shadow-picker__input {
-	border: 1px solid teal;
+    border: 1px solid teal;
 }
+
 .custom-picker .shadow-picker__slider {
-	background: red;
+    background: red;
 }
+
 .custom-picker .shadow-picker__slider::-webkit-slider-thumb {
-	background: blue;
+    background: blue;
 }
 ```

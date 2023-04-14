@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import Input from "../inputs/Input";
 import {Label} from "../inputs/Label";
-import {unitRegex, useUnitValue} from "../common";
+import {useUnitValue} from "../common";
 
 const Wrapper = styled.div`
 	flex: 1;
@@ -31,31 +31,31 @@ const Slider = styled.input`
 `;
 
 interface Props {
-	title: string;
-	value: string;
-	onChange: (value: string) => void;
+    title: string;
+    value: string;
+    onChange: (value: string) => void;
 }
 
 export default ({title, value, onChange}: Props) => {
-	const {amount, unit, setAmount} = useUnitValue(value);
+    const {amount, unit, setAmount} = useUnitValue(value);
 
-	const changed = (e) => {
-		const val = parseInt(e.target.value);
-		setAmount(val);
-		onChange(val + unit);
-	};
+    const changed = (e) => {
+        const val = parseInt(e.target.value);
+        setAmount(val);
+        onChange(val + unit);
+    };
 
-	return (
-		<Wrapper>
-			<Label>{title}</Label>
-			<Input value={value} onChange={onChange} />
-			<Slider
-				className={"shadow-picker__slider"}
-				type={"range"}
-				value={amount}
-				onChange={changed}
-				max={100}
-			/>
-		</Wrapper>
-	);
+    return (
+        <Wrapper>
+            <Label>{title}</Label>
+            <Input value={value} onChange={onChange}/>
+            <Slider
+                className={"shadow-picker__slider"}
+                type={"range"}
+                value={amount}
+                onChange={changed}
+                max={100}
+            />
+        </Wrapper>
+    );
 };

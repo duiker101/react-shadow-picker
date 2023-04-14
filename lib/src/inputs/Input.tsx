@@ -15,35 +15,35 @@ const Input = styled.input`
 `;
 
 interface Props {
-	value: string;
-	onChange: (value: string) => void;
+    value: string;
+    onChange: (value: string) => void;
 }
 
 export default ({value, onChange}: Props) => {
-	const [tmp, setTmp] = useState(value);
-	const [active, setActive] = useState(false);
+    const [tmp, setTmp] = useState(value);
+    const [active, setActive] = useState(false);
 
-	useEffect(() => {
-		if (!active) setTmp(value);
-	}, [value]);
+    useEffect(() => {
+        if (!active) setTmp(value);
+    }, [value]);
 
-	const changed = (e) => {
-		setTmp(e.target.value);
-		onChange(e.target.value);
-	};
+    const changed = (e) => {
+        setTmp(e.target.value);
+        onChange(e.target.value);
+    };
 
-	const blur = () => {
-		setActive(false);
-		if (/(-?\d+)((r?em)|(px)|\%)$/.test(tmp)) onChange(tmp);
-	};
+    const blur = () => {
+        setActive(false);
+        if (/(-?\d+)((r?em)|(px)|\%)$/.test(tmp)) onChange(tmp);
+    };
 
-	return (
-		<Input
-			className={"shadow-picker__input"}
-			value={tmp}
-			onFocus={() => setActive(true)}
-			onBlur={blur}
-			onChange={changed}
-		/>
-	);
+    return (
+        <Input
+            className={"shadow-picker__input"}
+            value={tmp}
+            onFocus={() => setActive(true)}
+            onBlur={blur}
+            onChange={changed}
+        />
+    );
 };

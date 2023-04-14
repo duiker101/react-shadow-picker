@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import OffsetGrid from "../inputs/OffsetGrid";
 import {Label} from "../inputs/Label";
 import Input from "../inputs/Input";
 import {ShadowPickerParams} from "../index";
-import {unitRegex, useUnitValue} from "../common";
+import {useUnitValue} from "../common";
 
 const Wrapper = styled.div`
 	flex: 3;
@@ -28,41 +28,41 @@ const Grid = styled.div`
 `;
 
 interface Props {
-	value: ShadowPickerParams["offset"];
-	onChange: (value: ShadowPickerParams["offset"]) => void;
+    value: ShadowPickerParams["offset"];
+    onChange: (value: ShadowPickerParams["offset"]) => void;
 }
 
 export default ({value, onChange}: Props) => {
-	const {amount: xAmount, unit: xUnit} = useUnitValue(value.x);
-	const {amount: yAmount, unit: yUnit} = useUnitValue(value.y);
+    const {amount: xAmount, unit: xUnit} = useUnitValue(value.x);
+    const {amount: yAmount, unit: yUnit} = useUnitValue(value.y);
 
-	const gridChange = ({x, y}) => {
-		onChange({x: ~~x + xUnit, y: ~~y + yUnit});
-	};
+    const gridChange = ({x, y}) => {
+        onChange({x: ~~x + xUnit, y: ~~y + yUnit});
+    };
 
-	const inputChange = (axis: "x" | "y") => (val) => {
-		onChange({...value, [axis]: val});
-	};
+    const inputChange = (axis: "x" | "y") => (val) => {
+        onChange({...value, [axis]: val});
+    };
 
-	return (
-		<Wrapper>
-			<Inputs>
-				<Row>
-					<Label>X Offset</Label>
-					<Input value={value.x} onChange={inputChange("x")} />
-				</Row>
-				<Row>
-					<Label>Y Offset</Label>
-					<Input value={value.y} onChange={inputChange("y")} />
-				</Row>
-			</Inputs>
+    return (
+        <Wrapper>
+            <Inputs>
+                <Row>
+                    <Label>X Offset</Label>
+                    <Input value={value.x} onChange={inputChange("x")}/>
+                </Row>
+                <Row>
+                    <Label>Y Offset</Label>
+                    <Input value={value.y} onChange={inputChange("y")}/>
+                </Row>
+            </Inputs>
 
-			<Grid>
-				<OffsetGrid
-					offset={{x: xAmount, y: yAmount}}
-					onChange={gridChange}
-				/>
-			</Grid>
-		</Wrapper>
-	);
+            <Grid>
+                <OffsetGrid
+                    offset={{x: xAmount, y: yAmount}}
+                    onChange={gridChange}
+                />
+            </Grid>
+        </Wrapper>
+    );
 };

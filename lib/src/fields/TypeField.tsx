@@ -14,7 +14,7 @@ const Group = styled.div`
 	margin: 0 0 0 auto;
 `;
 
-const Button = styled.div<{active: boolean}>`
+const Button = styled.div<{ active: boolean }>`
 	border: 1px solid #555a;
 	background: ${(p) => (p.active ? "#4285F4" : "transparent")};
 	cursor: pointer;
@@ -35,34 +35,34 @@ const ButtonIn = styled(Button)`
 `;
 
 interface Props {
-	value: ShadowPosition;
-	onChange: (value: ShadowPosition) => void;
+    value: ShadowPosition;
+    onChange: (value: ShadowPosition) => void;
 }
 
 export default ({value, onChange}: Props) => {
-	return (
-		<Wrapper>
-			<Label>Type</Label>
-			<Group>
-				<ButtonOut
-					className={
-						"shadow-picker__position " +
-						(value === "outside" ? "active" : "")
-					}
-					active={value === "outside"}
-					onClick={() => onChange("outside")}>
-					Outside
-				</ButtonOut>
-				<ButtonIn
-					className={
-						"shadow-picker__position " +
-						(value === "inside" ? "active" : "")
-					}
-					active={value === "inside"}
-					onClick={() => onChange("inside")}>
-					Inside
-				</ButtonIn>
-			</Group>
-		</Wrapper>
-	);
+    return (
+        <Wrapper>
+            <Label>Type</Label>
+            <Group>
+                <ButtonOut
+                    className={
+                        "shadow-picker__position " +
+                        (value === "outside" ? "active" : "")
+                    }
+                    active={value === "outside"}
+                    onClick={() => onChange("outside")}>
+                    Outside
+                </ButtonOut>
+                <ButtonIn
+                    className={
+                        "shadow-picker__position " +
+                        (value === "inside" ? "active" : "")
+                    }
+                    active={value === "inside"}
+                    onClick={() => onChange("inside")}>
+                    Inside
+                </ButtonIn>
+            </Group>
+        </Wrapper>
+    );
 };

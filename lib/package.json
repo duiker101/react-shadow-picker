@@ -20,7 +20,7 @@
 	"scripts": {
 		"start": "tsc --watch",
 		"test": "jest",
-		"prebuild": "del -f dist README.md",
+		"prebuild": "del dist README.md",
 		"build": "tsc",
 		"postbuild": "cpy ../README.md ./README.md",
 		"prepublishOnly": "npm run build"
