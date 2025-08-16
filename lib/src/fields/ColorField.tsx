@@ -5,28 +5,28 @@ import {Label} from "../inputs/Label";
 import {parseHexColor} from "../common";
 
 const Wrapper = styled.div`
-	flex: 1;
-	display: flex;
-	align-items: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
 `;
 
 const Slider = styled.input`
-	flex: 1;
+    flex: 1;
 
-	appearance: none;
-	width: 100%;
-	height: 2px;
-	background: #555a;
-	outline: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: #555a;
+    outline: none;
 
-	&::-webkit-slider-thumb {
-		appearance: none;
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background: #4285f4;
-		cursor: pointer;
-	}
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #4285f4;
+        cursor: pointer;
+    }
 `;
 
 interface Props {
@@ -68,8 +68,8 @@ export default ({value, onChange}: Props) => {
     return (
         <Wrapper>
             <Label>Color</Label>
-            <Input value={value} onChange={updatedInput}/>
-            <input value={color} onChange={updated} type={"color"}/>
+            <Input value={value} onChange={updatedInput} />
+            <input value={color} onChange={updated} type={"color"} />
             <Slider
                 className={"shadow-picker__slider"}
                 type={"range"}

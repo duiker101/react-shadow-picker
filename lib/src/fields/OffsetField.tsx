@@ -7,24 +7,24 @@ import {ShadowPickerParams} from "../index";
 import {useUnitValue} from "../common";
 
 const Wrapper = styled.div`
-	flex: 3;
-	display: flex;
+    flex: 3;
+    display: flex;
 `;
 
 const Inputs = styled.div`
-	display: grid;
-	grid-template-rows: repeat(3, 1fr);
-	flex: 2;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    flex: 2;
 `;
 
 const Row = styled.div`
-	grid-column: 2 / span 2;
-	display: flex;
-	align-items: center;
+    grid-column: 2 / span 2;
+    display: flex;
+    align-items: center;
 `;
 
 const Grid = styled.div`
-	flex: 2;
+    flex: 2;
 `;
 
 interface Props {
@@ -49,11 +49,11 @@ export default ({value, onChange}: Props) => {
             <Inputs>
                 <Row>
                     <Label>X Offset</Label>
-                    <Input value={value.x} onChange={inputChange("x")}/>
+                    <Input value={value.x} onChange={inputChange("x")} />
                 </Row>
                 <Row>
                     <Label>Y Offset</Label>
-                    <Input value={value.y} onChange={inputChange("y")}/>
+                    <Input value={value.y} onChange={inputChange("y")} />
                 </Row>
             </Inputs>
 

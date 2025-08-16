@@ -1,20 +1,20 @@
 import React, {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.svg<{ dragging: boolean }>`
-	width: 100px;
-	height: 100px;
-	border: 1px solid #5a5a5a;
-	cursor: ${(p) => (p.dragging ? "grabbing" : "grab")};
+const Wrapper = styled.svg<{dragging: boolean}>`
+    width: 100px;
+    height: 100px;
+    border: 1px solid #5a5a5a;
+    cursor: ${(p) => (p.dragging ? "grabbing" : "grab")};
 `;
 
 const Handle = styled.circle`
-	color: #4285f4;
-	pointer-events: none;
+    color: #4285f4;
+    pointer-events: none;
 `;
 
 const Line = styled.line`
-	color: #555a;
+    color: #555a;
 `;
 
 interface Offset {
@@ -37,7 +37,7 @@ export default ({offset: {x, y}, max = 20, onChange}: Props) => {
         updatePos(e);
     };
 
-    const updatePos = (e: { clientX: number; clientY: number }) => {
+    const updatePos = (e: {clientX: number; clientY: number}) => {
         let point = svg.current.createSVGPoint();
         point.x = e.clientX;
         point.y = e.clientY;
@@ -75,7 +75,8 @@ export default ({offset: {x, y}, max = 20, onChange}: Props) => {
             dragging={dragging}
             data-touch={true}
             className={"shadow-picker__grid"}
-            viewBox={"0 0 100 100"}>
+            viewBox={"0 0 100 100"}
+        >
             <Line
                 x1={50}
                 y1={0}

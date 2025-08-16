@@ -19,17 +19,19 @@
 	],
 	"scripts": {
 		"start": "tsc --watch",
-		"test": "jest",
-		"prebuild": "del dist README.md",
 		"build": "tsc",
-		"postbuild": "cpy ../README.md ./README.md",
-		"prepublishOnly": "npm run build"
+		"test": "jest",
+		"prerelease": "del dist README.md",
+		"release": "tsc",
+		"postrelease": "cpy ../README.md ./README.md",
+		"prepublishOnly": "pnpm run build"
 	},
 	"peerDependencies": {
-		"react": ">=17.0.2"
+		"react": ">=17.0.2",
+		"react-dom": ">=17.0.0"
 	},
 	"dependencies": {
-		"styled-components": "^5.3.9"
+		"styled-components": "^6.1.19"
 	},
 	"browserslist": [
 		"> 0.25%, not dead"

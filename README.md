@@ -8,7 +8,7 @@ A shadow picker inspired by the Chromium devtools
 
 ![Demo](https://raw.githubusercontent.com/duiker101/react-shadow-picker/master/docs/demo.png)
 
-[**Live Demo**](https://react-shadow-picker.now.sh)
+[**Live Demo**](https://react-shadow-picker.vercel.app)
 
 ### Installation
 

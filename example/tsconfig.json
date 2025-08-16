@@ -2,8 +2,11 @@
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "./dist",
-		"jsx": "react"
 	},
+	"include": [
+		"vite.config.ts",
+		"index.tsx"
+	],
 	"exclude": [
 		"./dist"
 	]

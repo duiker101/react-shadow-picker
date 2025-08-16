@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import ReactDOM from "react-dom";
-import {ShadowPicker} from "../lib/src";
+import {createRoot} from "react-dom/client";
+import {ShadowPicker} from "react-shadow-picker";
 
 const App = () => {
     const [custom, setCustom] = useState(false);
@@ -32,4 +32,5 @@ const App = () => {
     );
 };
 
-ReactDOM.render(<App/>, document.getElementById("root"));
+const root = createRoot(document.getElementById("root")!);
+root.render(<App />);

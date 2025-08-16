@@ -5,29 +5,29 @@ import {Label} from "../inputs/Label";
 import {useUnitValue} from "../common";
 
 const Wrapper = styled.div`
-	flex: 1;
-	display: flex;
-	align-items: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
 `;
 
 const Slider = styled.input`
-	flex: 2;
-	width: 100%;
+    flex: 2;
+    width: 100%;
 
-	appearance: none;
-	width: 100%;
-	height: 2px;
-	background: #555a;
-	outline: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: #555a;
+    outline: none;
 
-	&::-webkit-slider-thumb {
-		appearance: none;
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background: #4285F4;
-		cursor: pointer;
-	}
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #4285f4;
+        cursor: pointer;
+    }
 `;
 
 interface Props {
@@ -48,7 +48,7 @@ export default ({title, value, onChange}: Props) => {
     return (
         <Wrapper>
             <Label>{title}</Label>
-            <Input value={value} onChange={onChange}/>
+            <Input value={value} onChange={onChange} />
             <Slider
                 className={"shadow-picker__slider"}
                 type={"range"}

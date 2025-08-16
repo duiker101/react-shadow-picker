@@ -1,9 +1,16 @@
 {
-    "name": "example",
-    "version": "0.0.0",
-    "license": "MIT",
-    "scripts": {
-        "start": "parcel serve index.html",
-        "build": "parcel build index.html"
-    }
+	"name": "example",
+	"version": "0.0.0",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "vite",
+		"preview": "vite preview",
+		"build": "vite build"
+	},
+	"dependencies": {
+		"react-shadow-picker": "workspace:*",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1"
+	}
 }

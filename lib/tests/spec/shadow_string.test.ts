@@ -1,5 +1,3 @@
-// import parse
-
 import {buildShadowString, parseShadowString} from "../../src/common";
 
 test("x y color", () => {
